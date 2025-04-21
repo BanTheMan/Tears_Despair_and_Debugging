@@ -27,7 +27,7 @@ public class Row {
 		
 		for (Cell cell : this.cells) {
 			string.append(cell.toString());
-			string.append(", ");
+			string.append(", \n");
 		}
 		
 		string.append("]]");
