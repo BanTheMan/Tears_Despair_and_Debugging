@@ -9,7 +9,6 @@ public class Cell {
 	private CellComponents down;
 
 	public Cell(CellComponents left, CellComponents right, CellComponents up, CellComponents down) {
-		// TODO Auto-generated constructor stub
 		this.left = left;
 		this.right = right;
 		this.up = up;
@@ -17,44 +16,52 @@ public class Cell {
 	}
 
 	public CellComponents getRight() {
-		// TODO Auto-generated method stub
+		
 		return this.right;
 	}
 
 	public CellComponents getLeft() {
-		// TODO Auto-generated method stub
+		
 		return this.left;
 	}
 
 	public CellComponents getDown() {
-		// TODO Auto-generated method stub
+		
 		return this.down;
 	}
 	
 	public CellComponents getUp() {
-		// TODO Auto-generated method stub
+		
 		return this.up;
 	}
 	
 	// Verify new components abide by rules
 
 	public void setUp(CellComponents newUpComponent) {
-		// TODO Auto-generated method stub
+		if(newUpComponent == null) {
+			this.up = CellComponents.Wall; 
+		}
 		this.up = newUpComponent;
 	}
 
 	public void setDown(CellComponents newDownComponent) {
-		// TODO Auto-generated method stub
+		if(newDownComponent == null) {
+			this.down = CellComponents.Wall; 
+		}
 		this.down = newDownComponent;
 	}
 
 	public void setLeft(CellComponents newLeftComponent) {
-		// TODO Auto-generated method stub
+		if(newLeftComponent == null) {
+			this.left = .Wall; 
+		}
 		this.left = newLeftComponent;
 	}
 
 	public void setRight(CellComponents newRightComponent) {
-		// TODO Auto-generated method stub
+		if(newRightComponent == null) {
+			this.right = CellComponents.Wall; 
+		}
 		this.right = newRightComponent;
 	}
 
