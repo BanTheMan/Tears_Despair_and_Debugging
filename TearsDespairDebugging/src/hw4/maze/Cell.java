@@ -38,30 +38,19 @@ public class Cell {
 	// Verify new components abide by rules
 
 	public void setUp(CellComponents newUpComponent) {
-		// Cool lambda function! :P
-		//			boolean statement        if true:         if false:
 		this.up = (newUpComponent != null) ? newUpComponent : CellComponents.WALL;
 	}
 
 	public void setDown(CellComponents newDownComponent) {
-		if(newDownComponent == null) {
-			this.down = CellComponents.Wall; 
-		}
-		this.down = newDownComponent;
+		this.down = (newDownComponent != null) ? newDownComponent : CellComponents.WALL;
 	}
 
 	public void setLeft(CellComponents newLeftComponent) {
-		if(newLeftComponent == null) {
-			this.left = .Wall; 
-		}
-		this.left = newLeftComponent;
+		this.left = (newLeftComponent != null) ? newLeftComponent : CellComponents.WALL;
 	}
 
 	public void setRight(CellComponents newRightComponent) {
-		if(newRightComponent == null) {
-			this.right = CellComponents.Wall; 
-		}
-		this.right = newRightComponent;
+		this.right = (newRightComponent != null) ? newRightComponent : CellComponents.WALL;
 	}
 
 	@Override
