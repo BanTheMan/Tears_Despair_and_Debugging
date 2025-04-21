@@ -39,8 +39,9 @@ public class Cell {
 	// Verify new components abide by rules
 
 	public void setUp(CellComponents newUpComponent) {
-		// TODO Auto-generated method stub
-		this.up = newUpComponent;
+		// Cool lambda function! :P
+		//			boolean statement        if true:         if false:
+		this.up = (newUpComponent != null) ? newUpComponent : CellComponents.WALL;
 	}
 
 	public void setDown(CellComponents newDownComponent) {
