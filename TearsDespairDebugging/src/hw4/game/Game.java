@@ -1,5 +1,6 @@
 package hw4.game;
 
+import hw4.maze.Cell;
 import hw4.maze.Grid;
 import hw4.player.Movement;
 import hw4.player.Player;
@@ -16,6 +17,7 @@ public class Game {
 
 	public static void setupGame() {
 		
+		
 	}
 	
 	public Game(Grid grid) {
@@ -23,11 +25,30 @@ public class Game {
 	}
 	
 	public Game(int N) {
-		// TODO Auto-generated constructor stub
-	}
+		this.grid = createRandomGrid(N);
+				}
 	
 	public Grid createRandomGrid(int N) {
-		// TODO Auto-generated method stub
+		Grid grid = new Grid(N);
+		Random rand = new Random;
+		
+		int exitRow = rand.nextInt(N);
+		
+		for (int i = 0; i < N; i++) {
+			for (int j = 0; j < N; j++) {
+				
+				Cell cell = new Cell();
+				
+				cell.setUp(CWALL);
+				cell.setDown(WALL);
+				cell.setDown(WALL);
+				cell.setRight(WALL);
+				
+				if (j == 0 & i == exitRow )
+				{ cell.setLeft(EXIT); }
+			
+		}
+		
 		return null;
 	}
 
