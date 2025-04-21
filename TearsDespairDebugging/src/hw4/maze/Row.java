@@ -19,7 +19,16 @@ public class Row {
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder string = new StringBuilder("Row [cells=[");
+		
+		
+		
+		return "Row []";
+	}
 	
-	// add ToString
+	
 
 }

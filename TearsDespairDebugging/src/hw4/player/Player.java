@@ -6,23 +6,33 @@ import hw4.maze.Row;
 public class Player {
 	
 	// declare class variables
+	private Row currentRow;
+	private Cell currentCell;
 
 	public Player(Row row, Cell cell) {
-		// TODO Auto-generated constructor stub
+		this.currentRow = row;
+		this.currentCell = cell;
 	}
 
-	public Object getCurrentRow() {
-		// TODO Auto-generated method stub
-		return null;
+	public Row getCurrentRow() {
+		return this.currentRow;
 	}
 
-	public Object getCurrentCell() {
-		// TODO Auto-generated method stub
-		return null;
+	public Cell getCurrentCell() {
+		return this.currentCell;
 	}
 	
-	// implement navigation methods
+	public void setCurrentRow(Row newRow) {
+		this.currentRow = newRow;
+	}
 	
-	// add ToString
+	public void setCurrentCell(Cell newCell) {
+		this.currentCell = newCell;
+	}
+
+	@Override
+	public String toString() {
+		return "Player [currentCell=" + this.currentCell + ", currentRow=" + this.currentRow + "]";
+	}
 
 }

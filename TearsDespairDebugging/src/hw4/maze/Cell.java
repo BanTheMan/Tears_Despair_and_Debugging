@@ -1,60 +1,61 @@
 package hw4.maze;
 
-import java.util.ArrayList;
-
 public class Cell {
 	
 	// declare class variables
+	
 
-	public Cell(CellComponents exit, CellComponents aperture, CellComponents wall, CellComponents aperture2) {
+	public Cell(CellComponents left, CellComponents right, CellComponents up, CellComponents down) {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ArrayList<Cell> getCells() {
+	public CellComponents getRight() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public String getRight() {
+	public CellComponents getLeft() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public Object getLeft() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public String getDown() {
+	public CellComponents getDown() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 	
-	public String getUp() {
+	public CellComponents getUp() {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	// Verify new components abide by rules
 
-	public void setUp(CellComponents wall) {
+	public void setUp(CellComponents newUpComponent) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	public void setDown(CellComponents aperture) {
+	public void setDown(CellComponents newDownComponent) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	public void setLeft(CellComponents aperture) {
+	public void setLeft(CellComponents newLeftComponent) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	public void setRight(CellComponents exit) {
+	public void setRight(CellComponents newRightComponent) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public String toString() {
+		return "Cell [left=" + getLeft() + ", right=" + getRight() + ", up=" + getUp() + ", down=" + getDown() + "]";
 	}
 	
-	// add ToString
+	
 
 }
