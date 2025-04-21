@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Grid {
 	
 	// declare class variables
+	private ArrayList<Row> rows = new ArrayList<>();
 
 	public Grid(ArrayList<Row> rows) {
 		// TODO Auto-generated constructor stub
@@ -19,7 +20,21 @@ public class Grid {
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder string = new StringBuilder("Grid [rows=[");
+		
+		for (Row row : this.rows) {
+			string.append(row.toString());
+			string.append(", ");
+		}
+		
+		string.append("]]");
+		
+		return string.toString();
+	}
 	
-	// add ToString
+	
 
 }

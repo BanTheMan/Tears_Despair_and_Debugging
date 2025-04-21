@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Row {
 	
 	// declare class variables
+	private ArrayList<Cell> cells = new ArrayList<Cell>();
 
 	public Row(ArrayList<Cell> cells) {
 		// TODO Auto-generated constructor stub
@@ -24,9 +25,14 @@ public class Row {
 	public String toString() {
 		StringBuilder string = new StringBuilder("Row [cells=[");
 		
+		for (Cell cell : this.cells) {
+			string.append(cell.toString());
+			string.append(", ");
+		}
 		
+		string.append("]]");
 		
-		return "Row []";
+		return string.toString();
 	}
 	
 	
