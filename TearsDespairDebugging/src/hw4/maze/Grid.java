@@ -25,7 +25,7 @@ public class Grid {
 		
 		for (Row row : this.rows) {
 			string.append(row.toString());
-			string.append(", \n");
+			if (row != this.rows.getLast()) {string.append(", ");}
 		}
 		
 		string.append("]]");

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Row {
 	
 	// declare class variables
-	private ArrayList<Cell> cells = new ArrayList<Cell>();
+	private ArrayList<Cell> cells;
 
 	public Row(ArrayList<Cell> cells) {
 		this.cells = cells;
@@ -25,7 +25,7 @@ public class Row {
 		
 		for (Cell cell : this.cells) {
 			string.append(cell.toString());
-			string.append(", \n");
+			if (cell != this.cells.getLast()) {string.append(", ");}
 		}
 		
 		string.append("]]");

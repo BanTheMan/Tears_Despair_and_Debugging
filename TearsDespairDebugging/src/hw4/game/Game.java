@@ -55,8 +55,8 @@ public class Game {
 //				cell.setRight(WALL);
 				
 				// keep in mind that only 1 cell in the left row should have exit
-				if (j == 0 & i == exitRow )
-				{ cell.setLeft(CellComponents.EXIT); }
+//				if (j == 0 & i == exitRow )
+//				{ cell.setLeft(CellComponents.EXIT); }
 			
 			}
 		}
