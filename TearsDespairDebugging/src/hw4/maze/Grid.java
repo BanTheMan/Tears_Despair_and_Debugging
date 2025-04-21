@@ -12,8 +12,7 @@ public class Grid {
 	}
 
 	public ArrayList<Row> getRows() {
-		// TODO Auto-generated method stub
-		return null;
+		return rows;
 	}
 
 	public void setRows(ArrayList<Row> rows) {
