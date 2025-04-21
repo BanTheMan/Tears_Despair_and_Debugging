@@ -18,22 +18,22 @@ public class Cell {
 
 	public CellComponents getRight() {
 		// TODO Auto-generated method stub
-		return right;
+		return this.right;
 	}
 
 	public CellComponents getLeft() {
 		// TODO Auto-generated method stub
-		return left;
+		return this.left;
 	}
 
 	public CellComponents getDown() {
 		// TODO Auto-generated method stub
-		return down;
+		return this.down;
 	}
 	
 	public CellComponents getUp() {
 		// TODO Auto-generated method stub
-		return up;
+		return this.up;
 	}
 	
 	// Verify new components abide by rules
@@ -45,12 +45,12 @@ public class Cell {
 
 	public void setDown(CellComponents newDownComponent) {
 		// TODO Auto-generated method stub
-		this.up = newDownComponent;
+		this.down = newDownComponent;
 	}
 
 	public void setLeft(CellComponents newLeftComponent) {
 		// TODO Auto-generated method stub
-		this.up = newLeftComponent;
+		this.left = newLeftComponent;
 	}
 
 	public void setRight(CellComponents newRightComponent) {
