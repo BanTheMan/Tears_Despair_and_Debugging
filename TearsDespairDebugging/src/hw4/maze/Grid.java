@@ -8,7 +8,7 @@ public class Grid {
 	private ArrayList<Row> rows = new ArrayList<>();
 
 	public Grid(ArrayList<Row> rows) {
-		// TODO Auto-generated constructor stub
+		setRows(rows);
 	}
 
 	public ArrayList<Row> getRows() {
@@ -16,9 +16,8 @@ public class Grid {
 		return null;
 	}
 
-	public void setRows(Object object) {
-		// TODO Auto-generated method stub
-		
+	public void setRows(ArrayList<Row> rows) {
+		this.rows = rows;
 	}
 
 	@Override
@@ -27,7 +26,7 @@ public class Grid {
 		
 		for (Row row : this.rows) {
 			string.append(row.toString());
-			string.append(", ");
+			string.append(", \n");
 		}
 		
 		string.append("]]");

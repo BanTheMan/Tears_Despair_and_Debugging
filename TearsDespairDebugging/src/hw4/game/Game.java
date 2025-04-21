@@ -1,6 +1,9 @@
 package hw4.game;
 
+import java.util.Random;
+
 import hw4.maze.Cell;
+import hw4.maze.CellComponents;
 import hw4.maze.Grid;
 import hw4.player.Movement;
 import hw4.player.Player;
@@ -26,27 +29,36 @@ public class Game {
 	
 	public Game(int N) {
 		this.grid = createRandomGrid(N);
-				}
+	}
 	
 	public Grid createRandomGrid(int N) {
-		Grid grid = new Grid(N);
-		Random rand = new Random;
+		// Grid constructor takes ArrayList<Row>
+//		Grid grid = new Grid(N);
+		Random rand = new Random();
 		
-		int exitRow = rand.nextInt(N);
+		// Exit row must be left (first) row
+//		int exitRow = rand.nextInt(N);
 		
 		for (int i = 0; i < N; i++) {
 			for (int j = 0; j < N; j++) {
 				
-				Cell cell = new Cell();
+				Cell cell = new Cell(
+						CellComponents.WALL,
+						CellComponents.WALL,
+						CellComponents.WALL,
+						CellComponents.WALL);
 				
-				cell.setUp(CWALL);
-				cell.setDown(WALL);
-				cell.setDown(WALL);
-				cell.setRight(WALL);
+				// Redundant with appropriate constructor call :P
+//				cell.setUp(WALL);
+//				cell.setDown(WALL);
+//				cell.setDown(WALL);
+//				cell.setRight(WALL);
 				
+				// keep in mind that only 1 cell in the left row should have exit
 				if (j == 0 & i == exitRow )
-				{ cell.setLeft(EXIT); }
+				{ cell.setLeft(CellComponents.EXIT); }
 			
+			}
 		}
 		
 		return null;
