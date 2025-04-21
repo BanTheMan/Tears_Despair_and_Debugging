@@ -47,20 +47,7 @@ public class Game {
 
 	@Override
 	public String toString() {
-		return "Game [grid="
-				+ "Grid [rows=["
-				+ "Row [cells=["
-				+ "Cell [left=EXIT, right=APERTURE, up=WALL, down=APERTURE], "
-				+ "Cell [left=APERTURE, right=WALL, up=WALL, down=APERTURE], "
-				+ "Cell [left=WALL, right=WALL, up=WALL, down=APERTURE]]], "
-				+ "Row [cells=["
-				+ "Cell [left=WALL, right=WALL, up=APERTURE, down=APERTURE], "
-				+ "Cell [left=WALL, right=APERTURE, up=APERTURE, down=APERTURE], "
-				+ "Cell [left=APERTURE, right=WALL, up=APERTURE, down=APERTURE]]], "
-				+ "Row [cells=["
-				+ "Cell [left=WALL, right=WALL, up=APERTURE, down=WALL], "
-				+ "Cell [left=WALL, right=WALL, up=APERTURE, down=WALL], "
-				+ "Cell [left=WALL, right=WALL, up=APERTURE, down=WALL]]]]]]";
+		return "Game [" + this.grid +  "]";
 	}
 
 	
