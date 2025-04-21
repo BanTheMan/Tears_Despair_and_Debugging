@@ -6,6 +6,8 @@ import hw4.player.Player;
 
 public class Game {
 	
+	// declare class variables
+	
 	private Grid grid = null;
 
 	public static void setupGame() {

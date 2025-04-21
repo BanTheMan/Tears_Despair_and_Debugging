@@ -3,6 +3,8 @@ package hw4.maze;
 import java.util.ArrayList;
 
 public class Row {
+	
+	// declare class variables
 
 	public Row(ArrayList<Cell> cells) {
 		// TODO Auto-generated constructor stub

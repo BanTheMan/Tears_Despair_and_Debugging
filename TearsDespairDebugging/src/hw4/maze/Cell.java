@@ -3,6 +3,8 @@ package hw4.maze;
 import java.util.ArrayList;
 
 public class Cell {
+	
+	// declare class variables
 
 	public Cell(CellComponents exit, CellComponents aperture, CellComponents wall, CellComponents aperture2) {
 		// TODO Auto-generated constructor stub

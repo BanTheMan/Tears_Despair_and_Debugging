@@ -4,6 +4,8 @@ import hw4.maze.Cell;
 import hw4.maze.Row;
 
 public class Player {
+	
+	// declare class variables
 
 	public Player(Row row, Cell cell) {
 		// TODO Auto-generated constructor stub
@@ -18,6 +20,8 @@ public class Player {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	// implement navigation methods
 	
 	// add ToString
 
