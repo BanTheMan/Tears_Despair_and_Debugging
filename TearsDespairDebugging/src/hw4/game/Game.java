@@ -35,15 +35,13 @@ public class Game {
 	}
 	
 	public Grid createRandomGrid(int N) {
-		// Grid constructor takes ArrayList<Row>
-//		Grid grid = new Grid(N);
-		Random rand = new Random();
-		int exitRow = rand.nextInt(N);
 		
-		ArrayList<Row> allRows = new ArrayList<Row>();
+		Random rand = new Random();
+
+		ArrayList<ArrayList<Cell>> newGrid = new ArrayList<>();
 		
 		for (int i = 0; i < N; i++) {
-			ArrayList<Cell> cellList = new ArrayList<Cell>();
+			ArrayList<Cell> row = new ArrayList<>();
 			
 			for (int j = 0; j < N; j++) {
 				
@@ -55,19 +53,78 @@ public class Game {
 						);
 
 				
-				if (j == 0 && i == exitRow )
-				{ newCell.setLeft(CellComponents.EXIT); }
+				if (j == 0 && i == 0 ) // Upper Left Corner
+				{ newCell.setLeft(CellComponents.EXIT); 
 				
-				cellList.add(newCell);
-			
+				}
+				
+				row.add(newCell);
+				
 			}
 			
-			Row newRow = new Row(cellList);
-			allRows.add(newRow);
+			newGrid.add(row);
 
 		}
 		
-		return new Grid(allRows);
+		
+		
+		//Guarantee a Path
+		
+		int i = N - 1, j = N -1; // Bottom Right Corner
+			
+		while ( i > 0 || j > 0 )
+			{
+	
+				int path = rand.nextInt(2); // 0 UP ; 1 LEFT
+					if (path == 0 && i > 0)
+					{
+						newGrid.get(i).get(j).setUp(CellComponents.APERTURE);
+						newGrid.get(i-1).get(j).setDown(CellComponents.APERTURE);
+						i--;
+					}
+			
+					else if (path == 1 && j > 0)
+					{
+						newGrid.get(i).get(j).setLeft(CellComponents.APERTURE);
+						newGrid.get(i).get(j-1).setRight(CellComponents.APERTURE);
+						j--;
+					}
+			}
+		
+		
+			// Add random two-way aperture. WIP
+			
+			
+		for ( i = 0; i < N; i++ )
+			{
+			
+			for ( j = 0; j < N; j++)
+				{
+				
+				Cell cell = newGrid.get(i).get(j);
+				ArrayList<String> direct = new ArrayList<>();
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				}
+			
+			
+			
+			}
+		
+		
+		
+		
+		
+
 	}
 	
 	
@@ -84,7 +141,7 @@ public class Game {
 		Row row = player.getCurrentRow();
 		
 		
-		
+		//WIP
 		
 		
 		return true;
