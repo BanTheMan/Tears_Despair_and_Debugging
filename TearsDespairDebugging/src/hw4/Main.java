@@ -33,7 +33,7 @@ public class Main {
 		System.out.println("You're stuck in an invisible maze!\nHow'd you get there? >;)");
 		boolean escaped = false;
 		boolean quit = false;
-		while (!escaped || !quit) {
+		while (!escaped && !quit) {
 			game.visualizeGrid();
 			System.out.println("'W'=Move UP, 'A'=Move Left, 'S'=Move Down, 'D'=Move Right, 'Q'=Give UP");
 			if (player.getCurrentCell().getLeft() == CellComponents.EXIT) {System.out.println("You're at the exit! Move left to escape.");}
@@ -60,6 +60,7 @@ public class Main {
 					break;
 				case 'Q':
 					quit = true;
+					break;
 				default:
 					System.out.println("Invalid input");
 			}
