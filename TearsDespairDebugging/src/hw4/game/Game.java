@@ -105,14 +105,14 @@ public class Game {
 				ArrayList<String> direct = new ArrayList<>();
 				
 				
-				int apAmmount = rand.nextInt(3);
+				int apAmmount = rand.nextInt(3); //Amount of added aperture
 				
 				String locationCase;
 				
 				
 				if (i == 0 && j == 0)
 					{
-						locationCase = "EXIT"; //TOPLEFT
+						locationCase = "EXITCELL"; //TOPLEFT
 					}
 				
 				if (i == 0 && j == N -1)
@@ -132,6 +132,33 @@ public class Game {
 						locationCase = "BOTTOMRIGHT";
 						
 					}
+				
+				if (j == 0)
+					{
+						locationCase = "NORIGHT";
+					}
+				
+				if (j == N-1)
+					{
+						locationCase = "NOLEFT";
+					}
+				
+				
+				if (i == 0)
+					{
+						locationCase = "NOTOP";
+					}
+					
+				if (i == N-1)
+					{
+						locationCase = "NOBOTTOM";
+					}
+					
+				else
+					{
+						locationCase = "INSIDE";
+					}
+					
 				
 				
 				
