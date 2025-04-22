@@ -7,10 +7,7 @@ package hw4.maze;
 public class Cell {
 	
 	// declare class variables
-	private CellComponents left;
-	private CellComponents right;
-	private CellComponents up;
-	private CellComponents down;
+	private CellComponents left, right, up, down;
 
 	/**
 	 * Cell constructor
