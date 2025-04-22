@@ -194,6 +194,23 @@ public class Game {
 		
 		return true;
 	}
+	
+	public void visualizeGrid() {
+		for (Row row : this.grid.getRows()) {
+			for (Cell cell : row.getCells()) {
+				if (cell.getLeft() == CellComponents.EXIT) {
+					System.out.print("E ");
+				} 
+				else if (this.player.getCurrentCell() == cell) {
+					System.out.print("A ");
+				} 
+				else {
+					System.out.print("S ");
+				}
+			}
+			System.out.println();
+		}
+	}
 
 	@Override
 	public String toString() {
