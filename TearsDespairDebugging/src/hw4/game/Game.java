@@ -1,12 +1,15 @@
 package hw4.game;
 
 import java.util.Random;
+import java.util.ArrayList;
 
 import hw4.maze.Cell;
+import hw4.maze.Row;
 import hw4.maze.CellComponents;
 import hw4.maze.Grid;
 import hw4.player.Movement;
 import hw4.player.Player;
+
 
 /**
  * 
@@ -35,11 +38,13 @@ public class Game {
 		// Grid constructor takes ArrayList<Row>
 //		Grid grid = new Grid(N);
 		Random rand = new Random();
+		int exitRow = rand.nextInt(N);
 		
-		// Exit row must be left (first) row
-//		int exitRow = rand.nextInt(N);
+		ArrayList<Row> allRows = new ArrayList<Row>();
 		
 		for (int i = 0; i < N; i++) {
+			ArrayList<Cell> cellList = new ArrayList<Cell>();
+			
 			for (int j = 0; j < N; j++) {
 				
 				Cell cell = new Cell(
@@ -47,16 +52,10 @@ public class Game {
 						CellComponents.WALL,
 						CellComponents.WALL,
 						CellComponents.WALL);
+
 				
-				// Redundant with appropriate constructor call :P
-//				cell.setUp(WALL);
-//				cell.setDown(WALL);
-//				cell.setDown(WALL);
-//				cell.setRight(WALL);
-				
-				// keep in mind that only 1 cell in the left row should have exit
-//				if (j == 0 & i == exitRow )
-//				{ cell.setLeft(CellComponents.EXIT); }
+				if (j == 0 & i == exitRow )
+				{ cell.setLeft(CellComponents.EXIT); }
 			
 			}
 		}
@@ -73,8 +72,12 @@ public class Game {
 	}
 
 	public boolean play(Movement move, Player player) {
-		// return false if move is invalid
-		// use player getters and setters to move them appropriately
+		Row row = player.getCurrentRow();
+		
+		
+		
+		
+		
 		return true;
 	}
 
