@@ -47,21 +47,30 @@ public class Game {
 			
 			for (int j = 0; j < N; j++) {
 				
-				Cell cell = new Cell(
+				Cell newCell = new Cell(
 						CellComponents.WALL,
 						CellComponents.WALL,
 						CellComponents.WALL,
-						CellComponents.WALL);
+						CellComponents.WALL
+						);
 
 				
-				if (j == 0 & i == exitRow )
-				{ cell.setLeft(CellComponents.EXIT); }
+				if (j == 0 && i == exitRow )
+				{ newCell.setLeft(CellComponents.EXIT); }
+				
+				cellList.add(newCell);
 			
 			}
+			
+			Row newRow = new Row(cellList);
+			allRows.add(newRow);
+
 		}
 		
-		return null;
+		return new Grid(allRows);
 	}
+	
+	
 
 	public Grid getGrid() {
 		return this.grid;
