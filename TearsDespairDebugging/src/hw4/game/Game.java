@@ -105,6 +105,33 @@ public class Game {
 				ArrayList<String> direct = new ArrayList<>();
 				
 				
+				int apAmmount = rand.nextInt(3);
+				
+				String locationCase;
+				
+				
+				if (i == 0 && j == 0)
+					{
+						locationCase = "EXIT"; //TOPLEFT
+					}
+				
+				if (i == 0 && j == N -1)
+					{
+						locationCase = "TOPRIGHT";
+							
+					}
+				
+				if (i == N-1 && j == 0)
+					{
+						locationCase = "BOTTOMLEFT";
+							
+					}
+				
+				if (i == N -1 && j == N -1 )
+					{
+						locationCase = "BOTTOMRIGHT";
+						
+					}
 				
 				
 				
@@ -117,14 +144,8 @@ public class Game {
 				}
 			
 			
-			
 			}
 		
-		
-		
-		
-		
-
 	}
 	
 	
