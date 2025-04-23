@@ -103,7 +103,7 @@ public class Game {
 				
 				Cell cell = newGrid.get(i).get(j);
 						
-				int apAmount = 1 + rand.nextInt(3); //Amount of added aperture
+				int apAmount = 1 + rand.nextInt(3); //Amount of added aperture. Only 2 possible due to duel aperture doubling amount.
 				
 				String locationCase;
 				
@@ -158,18 +158,31 @@ public class Game {
 					
 			
 				int k = 0;
+				int currentAp = 0;
+				
 				
 				switch (locationCase)
 				{
 				
 				case "EXITCELL" ->
 				{
-					
-					if (apAmount == 3) //Corners can only have 2 at most.
+					if (apAmount == 3) //Corners only can have 2 possible aperture.
 					{
 						apAmount--;
 					}
 					
+					if(cell.getUp() == CellComponents.APERTURE)
+					{ currentAp++; }
+					if(cell.getDown() == CellComponents.APERTURE)
+					{ currentAp++; }
+					if(cell.getRight() == CellComponents.APERTURE)
+					{ currentAp++; }
+					if(cell.getLeft() == CellComponents.APERTURE)
+					{ currentAp++; }
+					
+					k = k + currentAp;
+					
+				
 					while(k < apAmount)
 					{
 						int direction = rand.nextInt(2); // 0 RIGHT, 1 DOWN
@@ -194,11 +207,21 @@ public class Game {
 				
 				case "TOPRIGHT" ->
 				{
-					
-					if (apAmount == 3) //Corners can only have 2 at most.
+					if (apAmount == 3) //Corners only can have 2 possible aperture.
 					{
 						apAmount--;
 					}
+					
+					if(cell.getUp() == CellComponents.APERTURE)
+					{ currentAp++; }
+					if(cell.getDown() == CellComponents.APERTURE)
+					{ currentAp++; }
+					if(cell.getRight() == CellComponents.APERTURE)
+					{ currentAp++; }
+					if(cell.getLeft() == CellComponents.APERTURE)
+					{ currentAp++; }
+					
+					k = k + currentAp;
 					
 					while(k < apAmount)
 					{
@@ -207,12 +230,14 @@ public class Game {
 						if(direction == 0 && cell.getLeft() != CellComponents.APERTURE )
 						{
 							cell.setLeft(CellComponents.APERTURE);
+				            newGrid.get(i).get(j - 1).setRight(CellComponents.APERTURE);
 							k++;
 						}
 						
 						else if(direction == 1 && cell.getDown() != CellComponents.APERTURE)
 						{
 							cell.setDown(CellComponents.APERTURE);
+				            newGrid.get(i + 1).get(j).setUp(CellComponents.APERTURE);
 							k++;
 						}
 						
@@ -222,11 +247,21 @@ public class Game {
 				
 				case "BOTTOMRIGHT" ->
 				{
-					
-					if (apAmount == 3) //Corners can only have 2 at most.
+					if (apAmount == 3) //Corners only can have 2 possible aperture.
 					{
 						apAmount--;
 					}
+					
+					if(cell.getUp() == CellComponents.APERTURE)
+					{ currentAp++; }
+					if(cell.getDown() == CellComponents.APERTURE)
+					{ currentAp++; }
+					if(cell.getRight() == CellComponents.APERTURE)
+					{ currentAp++; }
+					if(cell.getLeft() == CellComponents.APERTURE)
+					{ currentAp++; }
+					
+					k = k + currentAp;
 					
 					while(k < apAmount)
 					{
@@ -235,12 +270,14 @@ public class Game {
 						if(direction == 0 && cell.getLeft() != CellComponents.APERTURE )
 						{
 							cell.setLeft(CellComponents.APERTURE);
+							newGrid.get(i).get(j - 1).setRight(CellComponents.APERTURE);
 							k++;
 						}
 						
 						else if(direction == 1 && cell.getUp() != CellComponents.APERTURE)
 						{
 							cell.setUp(CellComponents.APERTURE);
+							newGrid.get(i - 1).get(j).setDown(CellComponents.APERTURE);
 							k++;
 						}
 						
@@ -252,11 +289,21 @@ public class Game {
 
 				case "BOTTOMLEFT" ->
 				{
-					
-					if (apAmount == 3) //Corners can only have 2 at most.
+					if (apAmount == 3) //Corners only can have 2 possible aperture.
 					{
 						apAmount--;
 					}
+					
+					if(cell.getUp() == CellComponents.APERTURE)
+					{ currentAp++; }
+					if(cell.getDown() == CellComponents.APERTURE)
+					{ currentAp++; }
+					if(cell.getRight() == CellComponents.APERTURE)
+					{ currentAp++; }
+					if(cell.getLeft() == CellComponents.APERTURE)
+					{ currentAp++; }
+					
+					k = k + currentAp;
 					
 					while(k < apAmount)
 					{
@@ -265,12 +312,14 @@ public class Game {
 						if(direction == 0 && cell.getRight() != CellComponents.APERTURE )
 						{
 							cell.setRight(CellComponents.APERTURE);
+							newGrid.get(i).get(j + 1).setLeft(CellComponents.APERTURE);
 							k++;
 						}
 						
 						else if(direction == 1 && cell.getUp() != CellComponents.APERTURE)
 						{
 							cell.setUp(CellComponents.APERTURE);
+							newGrid.get(i - 1).get(j).setDown(CellComponents.APERTURE);
 							k++;
 						}
 						
@@ -283,6 +332,17 @@ public class Game {
 				
 				case "NORIGHT" ->
 				{
+
+					if(cell.getUp() == CellComponents.APERTURE)
+					{ currentAp++; }
+					if(cell.getDown() == CellComponents.APERTURE)
+					{ currentAp++; }
+					if(cell.getRight() == CellComponents.APERTURE)
+					{ currentAp++; }
+					if(cell.getLeft() == CellComponents.APERTURE)
+					{ currentAp++; }
+					
+					k = k + currentAp;
 					
 					while(k < apAmount)
 					{
@@ -291,18 +351,21 @@ public class Game {
 						if(direction == 0 && cell.getUp() != CellComponents.APERTURE )
 						{
 							cell.setUp(CellComponents.APERTURE);
+							newGrid.get(i - 1).get(j).setDown(CellComponents.APERTURE);
 							k++;
 						}
 						
 						else if(direction == 1 && cell.getLeft() != CellComponents.APERTURE)
 						{
 							cell.setLeft(CellComponents.APERTURE);
+							newGrid.get(i).get(j - 1).setRight(CellComponents.APERTURE);
 							k++;
 						}
 						
 						else if(direction == 2 && cell.getDown() != CellComponents.APERTURE)
 						{
 							cell.setDown(CellComponents.APERTURE);
+							newGrid.get(i + 1).get(j).setUp(CellComponents.APERTURE);
 							k++;
 						}
 						
@@ -312,6 +375,16 @@ public class Game {
 				
 				case "NOLEFT" ->
 				{
+					if(cell.getUp() == CellComponents.APERTURE)
+					{ currentAp++; }
+					if(cell.getDown() == CellComponents.APERTURE)
+					{ currentAp++; }
+					if(cell.getRight() == CellComponents.APERTURE)
+					{ currentAp++; }
+					if(cell.getLeft() == CellComponents.APERTURE)
+					{ currentAp++; }
+					
+					k = k + currentAp;
 					
 					while(k < apAmount)
 					{
@@ -320,18 +393,21 @@ public class Game {
 						if(direction == 0 && cell.getUp() != CellComponents.APERTURE )
 						{
 							cell.setUp(CellComponents.APERTURE);
+							newGrid.get(i - 1).get(j).setDown(CellComponents.APERTURE);
 							k++;
 						}
 						
 						else if(direction == 1 && cell.getRight() != CellComponents.APERTURE)
 						{
 							cell.setRight(CellComponents.APERTURE);
+							newGrid.get(i).get(j + 1).setLeft(CellComponents.APERTURE);
 							k++;
 						}
 						
 						else if(direction == 2 && cell.getDown() != CellComponents.APERTURE)
 						{
-							cell).setDown(CellComponents.APERTURE);
+							cell.setDown(CellComponents.APERTURE);
+							newGrid.get(i + 1).get(j).setUp(CellComponents.APERTURE);
 							k++;
 						}
 						
@@ -341,6 +417,16 @@ public class Game {
 				
 				case "NOUP" ->
 				{
+					if(cell.getUp() == CellComponents.APERTURE)
+					{ currentAp++; }
+					if(cell.getDown() == CellComponents.APERTURE)
+					{ currentAp++; }
+					if(cell.getRight() == CellComponents.APERTURE)
+					{ currentAp++; }
+					if(cell.getLeft() == CellComponents.APERTURE)
+					{ currentAp++; }
+					
+					k = k + currentAp;
 					
 					while(k < apAmount)
 					{
@@ -349,18 +435,21 @@ public class Game {
 						if(direction == 0 && cell.getLeft() != CellComponents.APERTURE )
 						{
 							cell.setLeft(CellComponents.APERTURE);
+							newGrid.get(i).get(j - 1).setRight(CellComponents.APERTURE);
 							k++;
 						}
 						
 						else if(direction == 1 && cell.getRight() != CellComponents.APERTURE)
 						{
 							cell.setRight(CellComponents.APERTURE);
+							newGrid.get(i).get(j + 1).setLeft(CellComponents.APERTURE);
 							k++;
 						}
 						
 						else if(direction == 2 && cell.getDown() != CellComponents.APERTURE)
 						{
 							cell.setDown(CellComponents.APERTURE);
+							newGrid.get(i + 1).get(j).setUp(CellComponents.APERTURE);
 							k++;
 						}
 						
@@ -370,6 +459,16 @@ public class Game {
 				
 				case "NODOWN" ->
 				{
+					if(cell.getUp() == CellComponents.APERTURE)
+					{ currentAp++; }
+					if(cell.getDown() == CellComponents.APERTURE)
+					{ currentAp++; }
+					if(cell.getRight() == CellComponents.APERTURE)
+					{ currentAp++; }
+					if(cell.getLeft() == CellComponents.APERTURE)
+					{ currentAp++; }
+					
+					k = k + currentAp;
 					
 					while(k < apAmount)
 					{
@@ -378,18 +477,21 @@ public class Game {
 						if(direction == 0 && cell.getLeft() != CellComponents.APERTURE )
 						{
 							cell.setLeft(CellComponents.APERTURE);
+							newGrid.get(i).get(j - 1).setRight(CellComponents.APERTURE);
 							k++;
 						}
 						
 						else if(direction == 1 && cell.getRight() != CellComponents.APERTURE)
 						{
 							cell.setRight(CellComponents.APERTURE);
+							newGrid.get(i).get(j + 1).setLeft(CellComponents.APERTURE);
 							k++;
 						}
 						
 						else if(direction == 2 && cell.getUp() != CellComponents.APERTURE)
 						{
 							cell.setUp(CellComponents.APERTURE);
+							newGrid.get(i - 1).get(j).setDown(CellComponents.APERTURE);
 							k++;
 						}
 						
@@ -402,6 +504,16 @@ public class Game {
 				
 				case "INSIDE" ->
 				{
+					if(cell.getUp() == CellComponents.APERTURE)
+					{ currentAp++; }
+					if(cell.getDown() == CellComponents.APERTURE)
+					{ currentAp++; }
+					if(cell.getRight() == CellComponents.APERTURE)
+					{ currentAp++; }
+					if(cell.getLeft() == CellComponents.APERTURE)
+					{ currentAp++; }
+					
+					k = k + currentAp;
 					
 					while(k < apAmount)
 					{
@@ -410,24 +522,28 @@ public class Game {
 						if(direction == 0 && cell.getUp() != CellComponents.APERTURE )
 						{
 							cell.setUp(CellComponents.APERTURE);
+							newGrid.get(i - 1).get(j).setDown(CellComponents.APERTURE);
 							k++;
 						}
 						
 						else if(direction == 1 && cell.getRight() != CellComponents.APERTURE)
 						{
 							cell.setRight(CellComponents.APERTURE);
+							newGrid.get(i).get(j + 1).setLeft(CellComponents.APERTURE);
 							k++;
 						}
 						
 						else if(direction == 2 && cell.getDown() != CellComponents.APERTURE)
 						{
 							cell.setDown(CellComponents.APERTURE);
+							newGrid.get(i + 1).get(j).setUp(CellComponents.APERTURE);
 							k++;
 						}
 						
 						else if(direction == 3 && cell.getLeft() != CellComponents.APERTURE)
 						{
 							cell.setLeft(CellComponents.APERTURE);
+							newGrid.get(i).get(j - 1).setRight(CellComponents.APERTURE);
 							k++;
 						}
 						
