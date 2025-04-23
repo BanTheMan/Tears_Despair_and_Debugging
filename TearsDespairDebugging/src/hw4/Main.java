@@ -1,7 +1,7 @@
 package hw4;
 
-import java.security.SecureRandom;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 import java.util.stream.Stream;
 
@@ -39,27 +39,27 @@ public class Main {
 			System.out.println("'W'=Move UP, 'A'=Move Left, 'S'=Move Down, 'D'=Move Right, 'Q'=Give UP");
 			if (player.getCurrentCell().getLeft() == CellComponents.EXIT) {System.out.println("You're at the exit! Move left to escape.");}
 			String move = scanner.nextLine();
-			switch (move.charAt(0)) {
-				case 'W':
+			switch (Character.toLowerCase(move.charAt(0))) {
+				case 'w':
 					if (game.play(Movement.UP, player)) {successfulMoveMessage();} 
 					else {unsuccessfulMoveMessage();}
 					break;
-				case 'A':
+				case 'a':
 					if (player.getCurrentCell().getLeft() == CellComponents.EXIT) {escaped=true;}
 					else {
 						if (game.play(Movement.LEFT, player)) {successfulMoveMessage();} 
 						else {unsuccessfulMoveMessage();}
 					}
 					break;
-				case 'S':
+				case 's':
 					if (game.play(Movement.DOWN, player)) {successfulMoveMessage();} 
 					else {unsuccessfulMoveMessage();}
 					break;
-				case 'D':
+				case 'd':
 					if (game.play(Movement.RIGHT, player)) {successfulMoveMessage();} 
 					else {unsuccessfulMoveMessage();}
 					break;
-				case 'Q':
+				case 'q':
 					quit = true;
 					break;
 				default:
@@ -86,9 +86,9 @@ public class Main {
 	
 	public static void successfulMoveMessage() {
 		
-		SecureRandom secureRandom = new SecureRandom();
+		Random random = new Random();
 		
-		switch (secureRandom.nextInt(8)+1) {
+		switch (random.nextInt(8)+1) {
 			case 1:
 				System.out.println("You found an opening! Impressive! 'o'");
 				break;
@@ -119,9 +119,9 @@ public class Main {
 	
 	public static void unsuccessfulMoveMessage() {
 		
-		SecureRandom secureRandom = new SecureRandom();
+		Random random = new Random();
 		
-		switch (secureRandom.nextInt(8)+1) {
+		switch (random.nextInt(8)+1) {
 		case 1:
 			System.out.println("Ouch! Wall there!");
 			break;
