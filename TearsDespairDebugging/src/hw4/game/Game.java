@@ -672,7 +672,7 @@ public class Game {
 
 	@Override
 	public String toString() {
-		return "Game [" + this.grid +  "]";
+		return "Game [grid=" + this.grid +  "]";
 	}
 
 	
