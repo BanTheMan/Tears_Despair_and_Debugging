@@ -66,21 +66,21 @@ public class Main {
 					System.out.println("Invalid input");
 			}
 		}
-		if (quit) {System.out.println("You have quit. "
-				+ "You've given up on yourself and life. "
-				+ "Your wife sits on your couch, in the newly renovated, blue painted home you financed in August."
-				+ "She's sitting there, her knees to her chest, checking the time."
-				+ "'Where's BaPa' says your 4 year old daughter."
-				+ "How could your small, curly haired brunette wife answer when she's worrying the same thing.."
-				+ "How could you leave them?"
-				+ "She can't afford to pay for the house on her own."
-				+ "You were her first love! No one will be the same!"
-				+ "YOU'RE EVIL!"
-				+ "WHY WOULD YOU GIVE IN!?"
-				+ "DID YOU HAVE NO DREAMS?? NO ASPIRATIONS IN LIFE??"
-				+ "DID YOUR DAUGHTER AND ALL THAT YOU'VE WORKED FOR MEAN NOTHING?!"
-				+ "shame.."
-				+ "shame on you.");}
+		if (quit) {System.out.println("You have quit. \n"
+				+ "You've given up on yourself and life. \n"
+				+ "Your wife sits on your couch, in the newly renovated, blue painted home you financed in August.\n"
+				+ "She's sitting there, her knees to her chest, checking the time.\n"
+				+ "'Where's BaPa' says your 4 year old daughter.\n"
+				+ "How could your small, curly haired brunette wife answer when she's worrying the same thing..\n"
+				+ "How could you leave them?\n"
+				+ "She can't afford to pay for the house on her own.\n"
+				+ "You were her first love! No one will be the same!\n"
+				+ "YOU'RE EVIL!\n"
+				+ "WHY WOULD YOU GIVE IN!?\n"
+				+ "DID YOU HAVE NO DREAMS?? NO ASPIRATIONS IN LIFE??\n"
+				+ "DID YOUR DAUGHTER AND ALL THAT YOU'VE WORKED FOR MEAN NOTHING?!\n"
+				+ "shame..\n"
+				+ "shame on you.\n");}
 		else {System.out.println("Congratulations!\nYou have escaped the invisible maze!\n...but you weren't invisible... we were watching you...\nCome again!");}
 	}
 	
@@ -144,7 +144,7 @@ public class Main {
 			System.out.println("'lOoK At mE i'M TrYinG To eScAPe A mAzE' next time don't walk into a wall, BUDDY");
 			break;
 		case 8:
-			System.out.println("*side eye*");
+			System.out.println("*side eye* embarassingggg");
 			break;
 		}
 	}

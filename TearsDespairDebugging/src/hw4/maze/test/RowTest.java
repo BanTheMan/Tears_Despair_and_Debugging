@@ -103,11 +103,6 @@ class RowTest {
 
 	@Test
 	public void testToString() {
-		System.out.println("Row [cells=["
-							+ "Cell [left=EXIT, right=APERTURE, up=WALL, down=APERTURE], "
-							+ "Cell [left=APERTURE, right=WALL, up=WALL, down=APERTURE], "
-							+ "Cell [left=WALL, right=WALL, up=WALL, down=APERTURE]]]");
-		System.out.println(row.toString());
 		assertEquals("Row [cells=["
 							+ "Cell [left=EXIT, right=APERTURE, up=WALL, down=APERTURE], "
 							+ "Cell [left=APERTURE, right=WALL, up=WALL, down=APERTURE], "
