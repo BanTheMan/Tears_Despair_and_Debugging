@@ -28,13 +28,14 @@ public class Main {
 		Cell playerCellPosition = playerRowPosition.getCells().getLast();
 		player = new Player(playerRowPosition, playerCellPosition);
 		
+		
 		Scanner scanner = new Scanner(System.in);
 		
 		System.out.println("You're stuck in an invisible maze!\nHow'd you get there? >;)");
 		boolean escaped = false;
 		boolean quit = false;
 		while (!escaped && !quit) {
-			game.visualizeGrid();
+			game.visualizeGrid(player);
 			System.out.println("'W'=Move UP, 'A'=Move Left, 'S'=Move Down, 'D'=Move Right, 'Q'=Give UP");
 			if (player.getCurrentCell().getLeft() == CellComponents.EXIT) {System.out.println("You're at the exit! Move left to escape.");}
 			String move = scanner.nextLine();

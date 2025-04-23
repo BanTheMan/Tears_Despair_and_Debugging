@@ -19,7 +19,6 @@ public class Game {
 	// declare class variables
 	
 	private Grid grid;
-	private Player player;
 
 	public static void setupGame() {
 		
@@ -648,10 +647,10 @@ public class Game {
 	    
 	}
 	
-	public void visualizeGrid() {
+	public void visualizeGrid(Player player) {
 		for (Row row : this.grid.getRows()) {
 			for (Cell cell : row.getCells()) {
-				if (this.player.getCurrentCell() == cell) {
+				if (player.getCurrentCell() == cell) {
 					System.out.print("A ");
 				} 
 				
