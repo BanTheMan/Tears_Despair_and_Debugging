@@ -31,7 +31,7 @@ public class Game {
 	/**
 	 * 
 	 * Description
-	 * @param N
+	 * @param N size of Grid
 	 */
 	public Game(int N) {
 		this.grid = createRandomGrid(N);
@@ -39,8 +39,8 @@ public class Game {
 	
 	/**
 	 * Description
-	 * @param N
-	 * @return
+	 * @param N size of Grid
+	 * @return created Grid.
 	 */
 	public Grid createRandomGrid(int N) {
 		
@@ -51,6 +51,7 @@ public class Game {
 
 		ArrayList<ArrayList<Cell>> newGrid = new ArrayList<>();
 		
+		//Create a grid of cells with walls
 		for (int i = 0; i < N; i++) {
 			ArrayList<Cell> row = new ArrayList<>();
 			
@@ -64,7 +65,7 @@ public class Game {
 						);
 
 				
-				if (j == 0 && i == 0 ) // Upper Left Corner
+				if (j == 0 && i == 0 ) // Upper Left Corner as EXIT
 				{ newCell.setLeft(CellComponents.EXIT); 
 				
 				}
@@ -79,7 +80,7 @@ public class Game {
 		
 		
 		
-		//Guarantee a Path
+		//Guarantee an exit Path
 		
 		int i = N - 1, j = N -1; // Bottom Right Corner
 			
@@ -102,10 +103,9 @@ public class Game {
 					}
 			}
 		
+			
 		
-			// Add random two-way aperture. WIP
-			
-			
+		//Adding aperture for each room, random amount.
 		for ( i = 0; i < N; i++ )
 			{
 			
@@ -114,11 +114,12 @@ public class Game {
 				
 				Cell cell = newGrid.get(i).get(j);
 						
-				int apAmount = 1 + rand.nextInt(3); //Amount of added aperture. Only 2 possible due to duel aperture doubling amount.
+				int apAmount = 1 + rand.nextInt(3); //Random APERTURE between 1-3 amount
 				
 				String locationCase;
 				
 				
+				//EDGE CASE CELLS
 				if (i == 0 && j == 0)
 					{
 						locationCase = "EXITCELL"; //TOPLEFT
@@ -296,8 +297,6 @@ public class Game {
 				
 				}
 				
-				
-
 				case "BOTTOMLEFT" ->
 				{
 					if (apAmount == 3) //Corners only can have 2 possible aperture.
@@ -337,9 +336,6 @@ public class Game {
 					}
 				
 				}
-				
-				
-				
 				
 				case "NORIGHT" ->
 				{
@@ -510,9 +506,6 @@ public class Game {
 				
 				}
 				
-				
-				
-				
 				case "INSIDE" ->
 				{
 					if(cell.getUp() == CellComponents.APERTURE)
@@ -570,6 +563,8 @@ public class Game {
 		
 		}
 		
+		//Turn the final product into a grid and return
+		
 		ArrayList<Row> rows = new ArrayList<>();
 		for (ArrayList<Cell> cellRow : newGrid) {
 			rows.add(new Row(cellRow));
@@ -582,7 +577,7 @@ public class Game {
 
 	/**
 	 * Description
-	 * @return
+	 * @return grid given
 	 */
 	public Grid getGrid() {
 		return this.grid;
@@ -597,9 +592,9 @@ public class Game {
 	}
 
 	/**
-	 * @param move
-	 * @param player
-	 * @return
+	 * @param move (movement being requested)
+	 * @param player (player being used)
+	 * @return (returns whether or not movement failed or happened) 
 	 */
 	public boolean play(Movement move, Player player) {
 		
@@ -671,7 +666,7 @@ public class Game {
 	
 	/**
 	 * Description
-	 * @param player
+	 * @param player being passed
 	 */
 	public void visualizeGrid(Player player) {
 		for (Row row : this.grid.getRows()) {
