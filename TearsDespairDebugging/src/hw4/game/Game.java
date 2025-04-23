@@ -102,10 +102,8 @@ public class Game {
 				{
 				
 				Cell cell = newGrid.get(i).get(j);
-				ArrayList<String> direct = new ArrayList<>();
-				
-				
-				int apAmmount = rand.nextInt(3); //Amount of added aperture
+						
+				int apAmount = 1 + rand.nextInt(3); //Amount of added aperture
 				
 				String locationCase;
 				
@@ -115,41 +113,40 @@ public class Game {
 						locationCase = "EXITCELL"; //TOPLEFT
 					}
 				
-				if (i == 0 && j == N -1)
+				else if (i == 0 && j == N -1)
 					{
 						locationCase = "TOPRIGHT";
 							
 					}
 				
-				if (i == N-1 && j == 0)
+				else if (i == N-1 && j == 0)
 					{
 						locationCase = "BOTTOMLEFT";
 							
 					}
 				
-				if (i == N -1 && j == N -1 )
+				else if (i == N -1 && j == N -1 )
 					{
 						locationCase = "BOTTOMRIGHT";
 						
 					}
 				
-				if (j == 0)
+				else if (j == 0 )
 					{
 						locationCase = "NORIGHT";
 					}
 				
-				if (j == N-1)
+				else if (j == N-1 )
 					{
 						locationCase = "NOLEFT";
 					}
 				
-				
-				if (i == 0)
+				else if (i == 0 )
 					{
-						locationCase = "NOTOP";
+						locationCase = "NOUP";
 					}
 					
-				if (i == N-1)
+				else if (i == N-1 )
 					{
 						locationCase = "NOBOTTOM";
 					}
@@ -159,19 +156,298 @@ public class Game {
 						locationCase = "INSIDE";
 					}
 					
+			
+				int k = 0;
+				
+				switch (locationCase)
+				{
+				
+				case "EXITCELL" ->
+				{
+					
+					if (apAmount == 3) //Corners can only have 2 at most.
+					{
+						apAmount--;
+					}
+					
+					while(k < apAmount)
+					{
+						int direction = rand.nextInt(2); // 0 RIGHT, 1 DOWN
+						
+						if(direction == 0 && cell.getRight() != CellComponents.APERTURE )
+						{
+							cell.setRight(CellComponents.APERTURE);
+							newGrid.get(i).get(j+1).setLeft(CellComponents.APERTURE);
+							k++;
+						}
+						
+						else if(direction == 1 && cell.getDown() != CellComponents.APERTURE)
+						{
+							cell.setDown(CellComponents.APERTURE);
+							newGrid.get(i+1).get(j).setUp(CellComponents.APERTURE);
+							k++;
+						}
+						
+					}
+				
+				}
+				
+				case "TOPRIGHT" ->
+				{
+					
+					if (apAmount == 3) //Corners can only have 2 at most.
+					{
+						apAmount--;
+					}
+					
+					while(k < apAmount)
+					{
+						int direction = rand.nextInt(2); // 0 LEFT, 1 DOWN
+						
+						if(direction == 0 && cell.getLeft() != CellComponents.APERTURE )
+						{
+							cell.setLeft(CellComponents.APERTURE);
+							k++;
+						}
+						
+						else if(direction == 1 && cell.getDown() != CellComponents.APERTURE)
+						{
+							cell.setDown(CellComponents.APERTURE);
+							k++;
+						}
+						
+					}
+				
+				}
+				
+				case "BOTTOMRIGHT" ->
+				{
+					
+					if (apAmount == 3) //Corners can only have 2 at most.
+					{
+						apAmount--;
+					}
+					
+					while(k < apAmount)
+					{
+						int direction = rand.nextInt(2); // 0 LEFT, 1 UP
+						
+						if(direction == 0 && cell.getLeft() != CellComponents.APERTURE )
+						{
+							cell.setLeft(CellComponents.APERTURE);
+							k++;
+						}
+						
+						else if(direction == 1 && cell.getUp() != CellComponents.APERTURE)
+						{
+							cell.setUp(CellComponents.APERTURE);
+							k++;
+						}
+						
+					}
+				
+				}
+				
+				
+
+				case "BOTTOMLEFT" ->
+				{
+					
+					if (apAmount == 3) //Corners can only have 2 at most.
+					{
+						apAmount--;
+					}
+					
+					while(k < apAmount)
+					{
+						int direction = rand.nextInt(2); // 0 RIGHT, 1 UP
+						
+						if(direction == 0 && cell.getRight() != CellComponents.APERTURE )
+						{
+							cell.setRight(CellComponents.APERTURE);
+							k++;
+						}
+						
+						else if(direction == 1 && cell.getUp() != CellComponents.APERTURE)
+						{
+							cell.setUp(CellComponents.APERTURE);
+							k++;
+						}
+						
+					}
+				
+				}
 				
 				
 				
 				
+				case "NORIGHT" ->
+				{
+					
+					while(k < apAmount)
+					{
+						int direction = rand.nextInt(3); // 0 UP; 1 LEFT; 2 DOWN
+						
+						if(direction == 0 && cell.getUp() != CellComponents.APERTURE )
+						{
+							cell.setUp(CellComponents.APERTURE);
+							k++;
+						}
+						
+						else if(direction == 1 && cell.getLeft() != CellComponents.APERTURE)
+						{
+							cell.setLeft(CellComponents.APERTURE);
+							k++;
+						}
+						
+						else if(direction == 2 && cell.getDown() != CellComponents.APERTURE)
+						{
+							cell.setDown(CellComponents.APERTURE);
+							k++;
+						}
+						
+					}
+				
+				}
+				
+				case "NOLEFT" ->
+				{
+					
+					while(k < apAmount)
+					{
+						int direction = rand.nextInt(3); // 0 UP; 1 RIGHT; 2 DOWN
+						
+						if(direction == 0 && cell.getUp() != CellComponents.APERTURE )
+						{
+							cell.setUp(CellComponents.APERTURE);
+							k++;
+						}
+						
+						else if(direction == 1 && cell.getRight() != CellComponents.APERTURE)
+						{
+							cell.setRight(CellComponents.APERTURE);
+							k++;
+						}
+						
+						else if(direction == 2 && cell.getDown() != CellComponents.APERTURE)
+						{
+							cell).setDown(CellComponents.APERTURE);
+							k++;
+						}
+						
+					}
+				
+				}
+				
+				case "NOUP" ->
+				{
+					
+					while(k < apAmount)
+					{
+						int direction = rand.nextInt(3); // 0 LEFT; 1 RIGHT; 2 DOWN
+						
+						if(direction == 0 && cell.getLeft() != CellComponents.APERTURE )
+						{
+							cell.setLeft(CellComponents.APERTURE);
+							k++;
+						}
+						
+						else if(direction == 1 && cell.getRight() != CellComponents.APERTURE)
+						{
+							cell.setRight(CellComponents.APERTURE);
+							k++;
+						}
+						
+						else if(direction == 2 && cell.getDown() != CellComponents.APERTURE)
+						{
+							cell.setDown(CellComponents.APERTURE);
+							k++;
+						}
+						
+					}
+				
+				}
+				
+				case "NODOWN" ->
+				{
+					
+					while(k < apAmount)
+					{
+						int direction = rand.nextInt(3); // 0 LEFT; 1 RIGHT; 2 UP
+						
+						if(direction == 0 && cell.getLeft() != CellComponents.APERTURE )
+						{
+							cell.setLeft(CellComponents.APERTURE);
+							k++;
+						}
+						
+						else if(direction == 1 && cell.getRight() != CellComponents.APERTURE)
+						{
+							cell.setRight(CellComponents.APERTURE);
+							k++;
+						}
+						
+						else if(direction == 2 && cell.getUp() != CellComponents.APERTURE)
+						{
+							cell.setUp(CellComponents.APERTURE);
+							k++;
+						}
+						
+					}
+				
+				}
 				
 				
 				
 				
+				case "INSIDE" ->
+				{
+					
+					while(k < apAmount)
+					{
+						int direction = rand.nextInt(4); // 0 UP; 1 RIGHT; 2 DOWN; 3 LEFT
+						
+						if(direction == 0 && cell.getUp() != CellComponents.APERTURE )
+						{
+							cell.setUp(CellComponents.APERTURE);
+							k++;
+						}
+						
+						else if(direction == 1 && cell.getRight() != CellComponents.APERTURE)
+						{
+							cell.setRight(CellComponents.APERTURE);
+							k++;
+						}
+						
+						else if(direction == 2 && cell.getDown() != CellComponents.APERTURE)
+						{
+							cell.setDown(CellComponents.APERTURE);
+							k++;
+						}
+						
+						else if(direction == 3 && cell.getLeft() != CellComponents.APERTURE)
+						{
+							cell.setLeft(CellComponents.APERTURE);
+							k++;
+						}
+						
+					}
 				
 				}
 			
+				
+			} //end switch case
 			
+				
 			}
+		
+		}
+		
+		ArrayList<Row> rows = new ArrayList<>();
+		for (ArrayList<Cell> cellRow : newGrid) {
+			rows.add(new Row(cellRow));
+		}
+		return new Grid(rows);
 		
 	}
 	
@@ -198,12 +474,14 @@ public class Game {
 	public void visualizeGrid() {
 		for (Row row : this.grid.getRows()) {
 			for (Cell cell : row.getCells()) {
-				if (cell.getLeft() == CellComponents.EXIT) {
-					System.out.print("E ");
-				} 
-				else if (this.player.getCurrentCell() == cell) {
+				if (this.player.getCurrentCell() == cell) {
 					System.out.print("A ");
 				} 
+				
+				else if (cell.getLeft() == CellComponents.EXIT) {
+					System.out.print("E ");
+				} 
+
 				else {
 					System.out.print("S ");
 				}
@@ -211,6 +489,9 @@ public class Game {
 			System.out.println();
 		}
 	}
+	
+	
+				
 
 	@Override
 	public String toString() {
