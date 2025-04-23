@@ -36,6 +36,9 @@ public class Game {
 	
 	public Grid createRandomGrid(int N) {
 		
+		if (N < 3 || N > 7)
+		{ return null; }
+		
 		Random rand = new Random();
 
 		ArrayList<ArrayList<Cell>> newGrid = new ArrayList<>();
@@ -578,13 +581,71 @@ public class Game {
 	}
 
 	public boolean play(Movement move, Player player) {
-		Row row = player.getCurrentRow();
 		
+	    if (move == null || player == null) {
+	    	System.out.println("System Error. NULL move or NULL player.");
+	        return false;
+	    }
 		
-		//WIP
+		Row currentRow = player.getCurrentRow();
+		Cell currentCell = player.getCurrentCell();
 		
+		int currentRowIndex = 0;
+		int currentColIndex = 0;
 		
-		return true;
+	    for (int i = 0; i < currentRow.getCells().size(); i++) {
+	        if (currentRow.getCells().get(i) == currentCell) {
+	            currentColIndex = i;
+	            break;
+	        }
+	    }
+		
+
+	    ArrayList<Row> allRows = this.grid.getRows();
+	    for (int i = 0; i < allRows.size(); i++) {
+	        if (allRows.get(i) == currentRow) {
+	            currentRowIndex = i;
+	            break;
+	        }
+	    }
+		
+	    switch (move) {
+        case UP:
+            if (currentCell.getUp() == CellComponents.APERTURE && currentRowIndex > 0) {
+                player.setCurrentRow(allRows.get(currentRowIndex - 1));
+                return true;
+            }
+            break;
+        case DOWN:
+            if (currentCell.getDown() == CellComponents.APERTURE && currentRowIndex < allRows.size() - 1) {
+                player.setCurrentRow(allRows.get(currentRowIndex + 1));
+                return true;
+            }
+            break;
+        case LEFT:
+            if (currentCell.getLeft() == CellComponents.EXIT && currentColIndex > 0) {
+                player.setCurrentCell(currentRow.getCells().get(currentColIndex - 1));
+
+                // Check if they just passed through the exit
+                System.out.println("Player escaped through the EXIT!");
+                return true;
+            } else if (currentCell.getLeft() == CellComponents.APERTURE && currentColIndex > 0) {
+                player.setCurrentCell(currentRow.getCells().get(currentColIndex - 1));
+                return true;
+            }
+            break;
+        case RIGHT:
+            if (currentCell.getRight() == CellComponents.APERTURE && currentColIndex < currentRow.getCells().size() - 1) {
+                player.setCurrentCell(currentRow.getCells().get(currentColIndex + 1));
+                return true;
+            }
+            break;
+            
+         
+    }
+
+	    return false;
+	    
 	}
 	
 	public void visualizeGrid() {
