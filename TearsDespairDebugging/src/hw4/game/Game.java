@@ -134,12 +134,12 @@ public class Game {
 						
 					}
 				
-				else if (j == 0 )
+				else if (j == N-1 )
 					{
 						locationCase = "NORIGHT";
 					}
 				
-				else if (j == N-1 )
+				else if (j == 0 )
 					{
 						locationCase = "NOLEFT";
 					}
