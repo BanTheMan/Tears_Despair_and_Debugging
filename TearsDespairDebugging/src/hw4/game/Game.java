@@ -623,8 +623,8 @@ public class Game {
             }
             break;
         case LEFT:
-            if (currentCell.getLeft() == CellComponents.EXIT && currentColIndex > 0) {
-                player.setCurrentCell(currentRow.getCells().get(currentColIndex - 1));
+            if (currentCell.getLeft() == CellComponents.EXIT) {
+
 
                 // Check if they just passed through the exit
                 System.out.println("Player escaped through the EXIT!");
