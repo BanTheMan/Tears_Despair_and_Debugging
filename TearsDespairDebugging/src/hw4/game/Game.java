@@ -12,27 +12,36 @@ import hw4.player.Player;
 
 
 /**
- * 
+ * Author: Nate Spencer
  */
 public class Game {
 	
 	// declare class variables
 	
 	private Grid grid;
-
-	public static void setupGame() {
-		
-		
-	}
 	
+	/**
+	 * Description
+	 * @param grid
+	 */
 	public Game(Grid grid) {
 		this.grid = grid;
 	}
 	
+	/**
+	 * 
+	 * Description
+	 * @param N
+	 */
 	public Game(int N) {
 		this.grid = createRandomGrid(N);
 	}
 	
+	/**
+	 * Description
+	 * @param N
+	 * @return
+	 */
 	public Grid createRandomGrid(int N) {
 		
 		if (N < 3 || N > 7)
@@ -571,14 +580,27 @@ public class Game {
 	
 	
 
+	/**
+	 * Description
+	 * @return
+	 */
 	public Grid getGrid() {
 		return this.grid;
 	}
 	
+	/**
+	 * Description
+	 * @param grid
+	 */
 	public void setGrid(Grid grid) {
 		this.grid = grid;
 	}
 
+	/**
+	 * @param move
+	 * @param player
+	 * @return
+	 */
 	public boolean play(Movement move, Player player) {
 		
 	    if (move == null || player == null) {
@@ -647,6 +669,10 @@ public class Game {
 	    
 	}
 	
+	/**
+	 * Description
+	 * @param player
+	 */
 	public void visualizeGrid(Player player) {
 		for (Row row : this.grid.getRows()) {
 			for (Cell cell : row.getCells()) {
@@ -669,6 +695,9 @@ public class Game {
 	
 				
 
+	/**
+	 * String representation of Game object
+	 */
 	@Override
 	public String toString() {
 		return "Game [grid=" + this.grid +  "]";

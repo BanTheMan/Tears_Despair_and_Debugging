@@ -105,7 +105,7 @@ public class Main {
 				System.out.println("You're really good at this! Or not. Nobody's counting. Only stalking");
 				break;
 			case 6:
-				System.out.println("So close! Yet so far...");
+				System.out.println("Even closer! Yet so far!");
 				break;
 			case 7:
 				System.out.println("A cheerful message to keep you going: at least your grandma thinks you're handsome!");
