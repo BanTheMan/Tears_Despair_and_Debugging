@@ -21,8 +21,8 @@ public class Game {
 	private Grid grid;
 	
 	/**
-	 * Description
-	 * @param grid
+	 * Game constructor
+	 * @param grid to be used
 	 */
 	public Game(Grid grid) {
 		this.grid = grid;
@@ -30,17 +30,17 @@ public class Game {
 	
 	/**
 	 * 
-	 * Description
-	 * @param N
+	 * Game constructor
+	 * @param N = size of grid (NxN)
 	 */
 	public Game(int N) {
 		this.grid = createRandomGrid(N);
 	}
 	
 	/**
-	 * Description
-	 * @param N
-	 * @return
+	 * Create a random grid maze
+	 * @param N = size of grid (NxN)
+	 * @return randomly generated maze grid
 	 */
 	public Grid createRandomGrid(int N) {
 		
@@ -581,25 +581,26 @@ public class Game {
 	
 
 	/**
-	 * Description
-	 * @return
+	 * Retrieve the maze grid
+	 * @return Grid object
 	 */
 	public Grid getGrid() {
 		return this.grid;
 	}
 	
 	/**
-	 * Description
-	 * @param grid
+	 * Change the maze grid
+	 * @param Grid object
 	 */
 	public void setGrid(Grid grid) {
 		this.grid = grid;
 	}
 
 	/**
-	 * @param move
-	 * @param player
-	 * @return
+	 * Execute invoked movement by player in maze
+	 * @param move selected by player
+	 * @param player object in maze
+	 * @return boolean based on success/validity of movement
 	 */
 	public boolean play(Movement move, Player player) {
 		
@@ -670,8 +671,8 @@ public class Game {
 	}
 	
 	/**
-	 * Description
-	 * @param player
+	 * Visualize maze grid
+	 * @param player object in maze
 	 */
 	public void visualizeGrid(Player player) {
 		for (Row row : this.grid.getRows()) {
