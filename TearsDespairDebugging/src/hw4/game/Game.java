@@ -30,17 +30,28 @@ public class Game {
 	
 	/**
 	 * 
+<<<<<<< HEAD
 	 * Game constructor
 	 * @param N = size of grid (NxN)
+=======
+	 * Description
+	 * @param N size of Grid
+>>>>>>> branch 'main' of https://github.com/BanTheMan/Tears_Despair_and_Debugging.git
 	 */
 	public Game(int N) {
 		this.grid = createRandomGrid(N);
 	}
 	
 	/**
+<<<<<<< HEAD
 	 * Create a random grid maze
 	 * @param N = size of grid (NxN)
 	 * @return randomly generated maze grid
+=======
+	 * Description
+	 * @param N size of Grid
+	 * @return created Grid.
+>>>>>>> branch 'main' of https://github.com/BanTheMan/Tears_Despair_and_Debugging.git
 	 */
 	public Grid createRandomGrid(int N) {
 		
@@ -51,6 +62,7 @@ public class Game {
 
 		ArrayList<ArrayList<Cell>> newGrid = new ArrayList<>();
 		
+		//Create a grid of cells with walls
 		for (int i = 0; i < N; i++) {
 			ArrayList<Cell> row = new ArrayList<>();
 			
@@ -64,7 +76,7 @@ public class Game {
 						);
 
 				
-				if (j == 0 && i == 0 ) // Upper Left Corner
+				if (j == 0 && i == 0 ) // Upper Left Corner as EXIT
 				{ newCell.setLeft(CellComponents.EXIT); 
 				
 				}
@@ -79,7 +91,7 @@ public class Game {
 		
 		
 		
-		//Guarantee a Path
+		//Guarantee an exit Path
 		
 		int i = N - 1, j = N -1; // Bottom Right Corner
 			
@@ -102,10 +114,9 @@ public class Game {
 					}
 			}
 		
+			
 		
-			// Add random two-way aperture. WIP
-			
-			
+		//Adding aperture for each room, random amount.
 		for ( i = 0; i < N; i++ )
 			{
 			
@@ -114,11 +125,12 @@ public class Game {
 				
 				Cell cell = newGrid.get(i).get(j);
 						
-				int apAmount = 1 + rand.nextInt(3); //Amount of added aperture. Only 2 possible due to duel aperture doubling amount.
+				int apAmount = 1 + rand.nextInt(3); //Random APERTURE between 1-3 amount
 				
 				String locationCase;
 				
 				
+				//EDGE CASE CELLS
 				if (i == 0 && j == 0)
 					{
 						locationCase = "EXITCELL"; //TOPLEFT
@@ -296,8 +308,6 @@ public class Game {
 				
 				}
 				
-				
-
 				case "BOTTOMLEFT" ->
 				{
 					if (apAmount == 3) //Corners only can have 2 possible aperture.
@@ -337,9 +347,6 @@ public class Game {
 					}
 				
 				}
-				
-				
-				
 				
 				case "NORIGHT" ->
 				{
@@ -510,9 +517,6 @@ public class Game {
 				
 				}
 				
-				
-				
-				
 				case "INSIDE" ->
 				{
 					if(cell.getUp() == CellComponents.APERTURE)
@@ -570,6 +574,8 @@ public class Game {
 		
 		}
 		
+		//Turn the final product into a grid and return
+		
 		ArrayList<Row> rows = new ArrayList<>();
 		for (ArrayList<Cell> cellRow : newGrid) {
 			rows.add(new Row(cellRow));
@@ -581,8 +587,13 @@ public class Game {
 	
 
 	/**
+<<<<<<< HEAD
 	 * Retrieve the maze grid
 	 * @return Grid object
+=======
+	 * Description
+	 * @return grid given
+>>>>>>> branch 'main' of https://github.com/BanTheMan/Tears_Despair_and_Debugging.git
 	 */
 	public Grid getGrid() {
 		return this.grid;
@@ -597,10 +608,16 @@ public class Game {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Execute invoked movement by player in maze
 	 * @param move selected by player
 	 * @param player object in maze
 	 * @return boolean based on success/validity of movement
+=======
+	 * @param move (movement being requested)
+	 * @param player (player being used)
+	 * @return (returns whether or not movement failed or happened) 
+>>>>>>> branch 'main' of https://github.com/BanTheMan/Tears_Despair_and_Debugging.git
 	 */
 	public boolean play(Movement move, Player player) {
 		
